@@ -7,9 +7,9 @@ install libusb library:
 ## download/copy CAEN libraries: 
 https://www.caen.it/download/
 
-CAENVMELib (v3.4.4), CAENComm (v1.6.0), CAENDigitizer (v2.17.3) and driver for DT5720 (CAENUSBdrvB-1.5.4)
+CAENVMELib (v3.4.4), CAENComm (v1.6.0), CAENDigitizer (v2.17.3), CAENN957Lib and driver for N957 (CAENUSBdrvB-1.5.5)
 
-### install driver (CAENUSBdrvB-1.5.4) // it can be tricky
+### install driver (CAENUSBdrvB-1.5.5) // it can be tricky
 
 previously check BIOS setting of Secure Boot (should be OFF) 
 
@@ -43,11 +43,10 @@ now you can check USB port number where connected digitizer:
 
 `ls`
 
-and you should see output with few variables, for us **v1713_N** is interested. N – is number of USB port which should be filled in configure file in line:
-`OPEN USB N 0`
+and you should see output with few variables, for us **v1713_N** is interested. N – is number of USB port which should be filled in `Port [v1718_N]` NumberEntry field.
 
 ### To avoid some errors during driver installation:
->Skipping BTF generation for 	/home/user/Downloads/CAENUSBdrvB-1.5.4/CAENUSBdrvB.ko due to unavailability of vmlinux or any problems with vmlinux after updates
+>Skipping BTF generation for 	/home/user/Downloads/CAENUSBdrvB-1.5.5/CAENUSBdrvB.ko due to unavailability of vmlinux or any problems with vmlinux after updates
 
 `sudo cp /sys/kernel/btf/vmlinux /usr/lib/modules/`uname -r`/build/`
 
@@ -58,9 +57,9 @@ _modeprobe errore is usually connected with secure boot of BIOS settings._
 
 in /lib folder of every library (CAENVMELib, CAENComm and CAENDigitizer)
 
-## copy and complie DTRoot
-`git clone -b master https://github.com/DrKazlou/DTRoot.git`
+## copy and complie NRoot
+`git clone -b master https://github.com/DrKazlou/NRoot.git`
 
-- go to DTRoot folder and compile program by typing **make**
-- launch DTRoot: ./DTRoot
+- go to NRoot folder and compile program by typing **make**
+- launch NRoot: ./NRoot
 - Have fun.
